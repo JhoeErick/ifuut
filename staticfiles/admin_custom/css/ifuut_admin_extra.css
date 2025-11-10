@@ -1,0 +1,109 @@
+/* static/css/ifuut_admin_extra.css */
+/* IFUUT Admin — estilo extra (cards, counters, responsivo) */
+
+:root{
+  --ifuutt-teal: #0F766E; /* cor principal da home */
+  --ifuutt-teal-dark: #064e46;
+  --bg: #0b0d0f;
+  --panel: #0f1416;
+  --muted: #bfc9c6;
+  --accent: #F97316;
+}
+
+body {
+  background: var(--bg) !important;
+  color: #e6eceb !important;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
+/* Dashboard wrapper */
+.ifuut-dashboard {
+  max-width: 1200px;
+  margin: 22px auto;
+  padding: 18px;
+}
+
+/* header */
+.ifuut-dashboard__header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.ifuut-branding { display:flex; align-items:center; gap:12px; }
+.ifuut-logo {
+  width:56px; height:56px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; color:#fff; background:linear-gradient(135deg,var(--ifuutt-teal),var(--ifuutt-teal-dark));
+  box-shadow: 0 8px 30px rgba(15,118,110,0.12);
+  font-size:18px;
+}
+.ifuut-title h1 { margin:0; font-size:18px; font-weight:800; color:#fff; }
+.ifuut-sub { color:var(--muted); font-size:13px; margin-top:3px; }
+
+/* quicklinks */
+.ifuut-quicklinks { display:flex; gap:10px; align-items:center; }
+.ifuut-ql { color:var(--muted); text-decoration:none; padding:6px 10px; border-radius:8px; background:transparent; }
+.ifuut-ql:hover { color:#fff; background:rgba(255,255,255,0.03); }
+
+/* counters */
+.ifuut-counters {
+  display:flex;
+  gap:12px;
+  margin-bottom:18px;
+  flex-wrap:wrap;
+}
+.ifuut-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 14px;
+  border-radius: 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width: 190px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+.ifuut-card__icon { font-size:26px; width:52px; height:52px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); border-radius:12px; }
+.ifuut-card__num { font-size:22px; font-weight:800; color:#fff; }
+.ifuut-card__label { color:var(--muted); font-size:13px; }
+
+/* main area */
+.ifuut-main { display:flex; gap:18px; margin-top:6px; flex-wrap:wrap; }
+.ifuut-left { flex: 1 1 620px; min-width:300px; }
+.ifuut-right { width:320px; min-width:260px; }
+
+/* app list */
+.ifuut-app-list { display:grid; gap:12px; }
+.ifuut-app { background:var(--panel); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); }
+.ifuut-app__name { font-weight:700; color:#fff; margin-bottom:6px; }
+
+/* actions */
+.ifuut-actions .button {
+  display:inline-block;
+  padding:10px 12px;
+  border-radius:12px;
+  background:var(--ifuutt-teal);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  margin:6px 4px;
+}
+.ifuut-actions .button:hover { background:var(--ifuutt-teal-dark); transform:translateY(-2px); }
+
+/* mobile responsiveness */
+@media (max-width: 880px) {
+  .ifuut-main { flex-direction:column-reverse; }
+  .ifuut-right { width:100%; }
+  .ifuut-left { width:100%; }
+  .ifuut-counters { justify-content:center; }
+}
+
+/* make lists and tables softer in admin pages */
+.change-list table th, .module caption {
+  border-radius: 10px;
+}
+
+/* small adjustments to ensure admin components don't clash */
+#header, #user-tools { display:none !important; } /* hide some default admin header to avoid doubling up when using our template */

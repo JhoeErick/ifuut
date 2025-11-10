@@ -1,0 +1,21 @@
+﻿{
+  "business_name": "Arena Cascavel Pro",
+  "business_address": "Av. Brasil, 4500 - Cascavel",
+  "contact_phone": "+55 45 98888-7777",
+  "contact_email": "arenacascavelpro@gmail.com",
+  "description": "Quadra coberta com gramado sintético de última geração, ideal para society e futsal.",
+  "quadras": [
+    {
+      "nome": "Quadra Society Premium",
+      "tipo": "Futebol Society",
+      "capacidade": 14,
+      "surface_type": "synthetic",
+      "pile_height_mm": 45,
+      "infill_type": "areia + borracha",
+      "maintenance_frequency": "mensal",
+      "surface_condition_rating": 9,
+      "certifications": "FIFA Quality",
+      "notes": "Iluminação LED e vestiários modernos."
+    }
+  ]
+}

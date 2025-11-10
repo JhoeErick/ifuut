@@ -1,0 +1,4 @@
+para rodar o front:
+    npm run dev
+para rodar o back:
+    python manage.py runserver

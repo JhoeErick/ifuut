@@ -1,0 +1,81 @@
+{% extends "admin/base.html" %}
+{% load static i18n %}
+
+{# IFUUT - Painel administrativo em português com cabeçalho e estilo customizado #}
+
+{% block title %}IFUUT — Painel Administrativo{% endblock %}
+
+{% block extrahead %}
+  {{ block.super }}
+  <!-- CSS principal do painel (coloque em static/css/ifuut_admin.css) -->
+  <link rel="stylesheet" href="{% static 'css/ifuut_admin.css' %}">
+  <!-- Ícones adicionais (opcional) -->
+  <link rel="stylesheet" href="{% static 'css/admin-icons.css' %}">
+  <style>
+    /* Logotipo no cabeçalho */
+    .branding-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, #0F766E, #064e46);
+      box-shadow: 0 6px 18px rgba(15,118,110,0.12);
+      margin-right: 10px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    /* Indicadores de status */
+    .ifuut-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12px;
+      color: #111;
+    }
+    .ifuut-badge--pending  { background: #FFD54F; color: #111; }    /* amarelo */
+    .ifuut-badge--paid     { background: #A5D6A7; color: #062B11; }  /* verde claro */
+    .ifuut-badge--approved { background: #00C853; color: #00220a; }  /* verde forte */
+    .ifuut-badge--rejected { background: #EF5350; color: #2b0000; }  /* vermelho */
+  </style>
+{% endblock %}
+
+{% block branding %}
+  <div id="branding" style="display:flex; align-items:center; gap:12px;">
+    <div class="branding-logo" aria-hidden="true">IF</div>
+    <div>
+      <h1 style="margin:0; font-size:18px;">IFUUT</h1>
+      <div style="font-size:12px; color: #9aa3a0; margin-top:2px;">Painel Administrativo</div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block nav-global %}
+  {# Parte superior direita (usuário logado e ações rápidas) #}
+  <div id="user-tools" style="display:flex; gap:12px; align-items:center;">
+    <a href="{% url 'admin:password_change' %}" class="inline-link">Alterar senha</a>
+    <a href="{% url 'admin:logout' %}" class="inline-link">Sair</a>
+  </div>
+{% endblock %}
+
+{% block content_title %}
+  {# Título principal e indicadores de status #}
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+    <h1 style="margin:0; font-size:20px;">{{ site_header|default:_('Administração do Sistema IFUUT') }}</h1>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <span class="ifuut-badge ifuut-badge--pending">Pendente</span>
+      <span class="ifuut-badge ifuut-badge--approved">Aprovado</span>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {# Rodapé simples em português #}
+  <div id="footer" style="padding:12px 18px; text-align:center;">
+    © {{ now|date:"Y" }} IFUUT — Painel Administrativo Esportivo • Todos os direitos reservados
+  </div>
+{% endblock %}

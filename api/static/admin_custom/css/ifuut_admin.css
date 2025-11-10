@@ -1,0 +1,151 @@
+/* static/css/ifuut_admin.css
+   IFUUT — tema principal para o admin (cinza/pretinho, cantos arredondados)
+*/
+
+:root{
+  --bg:#0b0b0b;
+  --card:#111214;
+  --muted:#9ca3af;
+  --white:#ffffff;
+  --radius:12px;
+  --accent:#0F766E; /* verde petróleo - parecido com a home */
+}
+
+/* Força background do container do admin */
+html, body, #container {
+  background: var(--bg) !important;
+  color: var(--white) !important;
+  font-family: "Inter", "Poppins", "Segoe UI", sans-serif !important;
+}
+
+/* header (esconde visual padrão quando usamos templates customizados) */
+#header {
+  background: linear-gradient(90deg, rgba(0,0,0,0.6), rgba(10,10,10,0.8));
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding: 14px 28px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* branding tweaks */
+#branding h1 { color:var(--white); font-weight:800; font-size:18px; }
+#branding .subtitle { color:var(--muted); font-size:12px; }
+
+/* sidebar */
+#nav-sidebar {
+  background: linear-gradient(#0e0e0f,#0b0b0b);
+  border-right: 1px solid rgba(255,255,255,0.03);
+  padding-top: 18px;
+}
+#nav-sidebar a {
+  color: var(--muted);
+  padding: 10px 16px;
+  margin: 6px 10px;
+  border-radius: 10px;
+  display: block;
+  font-weight: 600;
+  transition: all .18s ease;
+}
+#nav-sidebar a:hover {
+  background: rgba(15,118,110,0.12);
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+/* main content card */
+#content {
+  margin: 28px 40px;
+  padding: 26px;
+  background: linear-gradient(180deg, rgba(17,18,19,0.92), rgba(10,10,10,0.88));
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* list styling (tabelas) */
+.change-list table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+.change-list thead th {
+  background: transparent;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 8px 12px;
+}
+.change-list tbody tr {
+  background: linear-gradient(180deg, var(--card), rgba(25,25,25,0.95));
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.change-list tbody tr:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+}
+.change-list td, .change-list th {
+  padding: 14px 16px;
+  border: none;
+  color: var(--white);
+  vertical-align: middle;
+}
+
+/* botões arredondados */
+.button, input[type=submit], .submit-row input {
+  background: var(--white);
+  color: #000;
+  border-radius: 14px;
+  padding: 10px 14px;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(15,118,110,0.06);
+}
+
+/* form fieldsets */
+fieldset.module, .inline-group {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+input, select, textarea {
+  background: #0b0b0b !important;
+  color: var(--white) !important;
+  border: 1px solid rgba(255,255,255,0.04) !important;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 6px 18px rgba(15,118,110,0.08);
+  border-color: var(--accent) !important;
+}
+
+/* labels / títulos */
+h1, .module caption, .inline-group h2 {
+  color: var(--white);
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+/* barras de status coloridas (classes utilitárias) */
+.row-status-approved { background: linear-gradient(90deg, rgba(34,197,94,0.12), transparent); color:#dff8e6; border-left:4px solid #16a34a; padding-left:12px; border-radius:8px; }
+.row-status-pending  { background: linear-gradient(90deg, rgba(250,204,21,0.06), transparent); color:#fff7cc; border-left:4px solid #d97706; padding-left:12px; border-radius:8px; }
+.row-status-rejected { background: linear-gradient(90deg, rgba(239,68,68,0.06), transparent); color:#ffe6e6; border-left:4px solid #dc2626; padding-left:12px; border-radius:8px; }
+
+/* footer discreto */
+#footer { background: transparent; color: var(--muted); padding: 10px 18px; border-top: 1px solid rgba(255,255,255,0.02); border-radius: 0 0 var(--radius) var(--radius); text-align:center; }
+
+/* scrollbar sutil */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 10px; }
+
+/* ensure our custom admin panels (index) don't clash */
+.index { background: transparent; }
+
+/* small responsive */
+@media(max-width:880px){
+  #content { margin: 14px; padding: 18px; }
+  #nav-sidebar { display:none; }
+}

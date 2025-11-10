@@ -1,0 +1,213 @@
+/* static/css/ifuut_admin_extra.css
+   IFUUT Admin — estilo extra (cards, counters, responsivo, tema cinza esportivo)
+*/
+
+:root {
+  --ifuutt-teal: #0F766E;      /* cor principal (home) */
+  --ifuutt-teal-dark: #064e46; /* variação escura */
+  --bg: #0b0d0f;               /* fundo geral */
+  --panel: #1E1E1E;            /* painel cinza esportivo */
+  --muted: #bfc9c6;            /* texto secundário */
+  --accent: #F97316;           /* laranja CTA se precisar */
+  --card-shadow: rgba(0,0,0,0.48);
+  --radius: 12px;
+}
+
+/* Reset / base */
+html, body {
+  background: var(--bg) !important;
+  color: #e6eceb !important;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !important;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Dashboard wrapper */
+.ifuut-dashboard {
+  max-width: 1200px;
+  margin: 22px auto;
+  padding: 18px;
+}
+
+/* header */
+.ifuut-dashboard__header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.ifuut-branding { display:flex; align-items:center; gap:12px; }
+.ifuut-logo {
+  width:56px; height:56px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; color:#fff;
+  background:linear-gradient(135deg,var(--ifuutt-teal),var(--ifuutt-teal-dark));
+  box-shadow: 0 8px 30px rgba(15,118,110,0.12);
+  font-size:18px;
+}
+.ifuut-title h1 { margin:0; font-size:18px; font-weight:800; color:#fff; }
+.ifuut-sub { color:var(--muted); font-size:13px; margin-top:3px; }
+
+/* quicklinks (top-right) */
+.ifuut-quicklinks { display:flex; gap:10px; align-items:center; }
+.ifuut-ql {
+  --pad-x: 10px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 8px var(--pad-x);
+  border-radius: 10px;
+  font-weight:700;
+  text-decoration:none;
+  color:var(--muted);
+  background: transparent;
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+.ifuut-ql:hover {
+  color:#fff;
+  background: linear-gradient(135deg, rgba(15,118,110,0.12), rgba(15,118,110,0.08));
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+}
+
+/* shimmer / brilho para quicklinks (raio animado) */
+.ifuut-ql::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:-90%;
+  width:60%;
+  height:100%;
+  transform: skewX(-25deg);
+  background: linear-gradient(120deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.05) 100%);
+  transition:left .45s cubic-bezier(.2,.9,.3,1);
+  pointer-events:none;
+  z-index:0;
+}
+.ifuut-ql:hover::before { left:160%; }
+
+/* counters */
+.ifuut-counters {
+  display:flex;
+  gap:12px;
+  margin-bottom:18px;
+  flex-wrap:wrap;
+}
+.ifuut-card {
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.03);
+  padding: 14px;
+  border-radius: 14px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width: 190px;
+  box-shadow: 0 6px 20px var(--card-shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.ifuut-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(15,118,110,0.28);
+}
+.ifuut-card__icon {
+  font-size:26px; width:52px; height:52px;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--ifuutt-teal),var(--ifuutt-teal-dark));
+  border-radius:12px; color:#fff;
+}
+.ifuut-card__num { font-size:22px; font-weight:800; color:#fff; }
+.ifuut-card__label { color:var(--muted); font-size:13px; }
+
+/* main area */
+.ifuut-main { display:flex; gap:18px; margin-top:6px; flex-wrap:wrap; }
+.ifuut-left {
+  flex:1 1 620px; min-width:300px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  border-radius:12px; padding:16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+.ifuut-right { width:320px; min-width:260px; }
+.ifuut-right > div {
+  background: var(--panel);
+  border-radius:12px; padding:16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* app list */
+.ifuut-app-list { display:grid; gap:12px; }
+.ifuut-app {
+  background:#242424; padding:12px; border-radius:12px;
+  border:1px solid rgba(255,255,255,0.03);
+}
+.ifuut-app__name { font-weight:700; color:#fff; margin-bottom:6px; }
+.ifuut-app a { color:var(--ifuutt-teal); text-decoration:none; }
+.ifuut-app a:hover { color:#1ee3b3; }
+
+/* actions (botões da direita) */
+.ifuut-actions .button {
+  display:inline-block;
+  padding:10px 12px;
+  border-radius:12px;
+  background: linear-gradient(135deg,var(--ifuutt-teal),var(--ifuutt-teal-dark));
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  margin:6px 4px;
+  text-align:center;
+  transition: all .25s ease;
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+}
+.ifuut-actions .button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+}
+
+/* brilho/animation para .ifuut-actions .button */
+.ifuut-actions .button::before {
+  content:"";
+  position:absolute;
+  top:0; left:-80%;
+  width:55%; height:100%;
+  transform: skewX(-25deg);
+  background: linear-gradient(120deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.28) 50%, rgba(255,255,255,0.06) 100%);
+  transition: left .42s cubic-bezier(.2,.9,.3,1);
+  pointer-events:none;
+  z-index:0;
+}
+.ifuut-actions .button:hover::before { left:160%; }
+
+/* mobile responsiveness */
+@media (max-width:880px) {
+  .ifuut-main { flex-direction:column-reverse; }
+  .ifuut-right, .ifuut-left { width:100%; }
+  .ifuut-counters { justify-content:center; }
+}
+
+/* admin lists softer */
+.change-list table th, .module caption { border-radius:10px; }
+
+/* hide default duplicated header to avoid clash with our custom header */
+#header, #user-tools { display:none !important; }
+
+/* status styles (quando você aplicar classes nas linhas) */
+.row-status-approved { background: linear-gradient(90deg, rgba(34,197,94,0.06), transparent); color:#dff8e6; border-left:4px solid #16a34a; padding-left:12px; border-radius:8px; }
+.row-status-pending  { background: linear-gradient(90deg, rgba(250,204,21,0.04), transparent); color:#fff7cc; border-left:4px solid #d97706; padding-left:12px; border-radius:8px; }
+.row-status-rejected { background: linear-gradient(90deg, rgba(239,68,68,0.04), transparent); color:#ffe6e6; border-left:4px solid #dc2626; padding-left:12px; border-radius:8px; }
+
+/* small utility tweaks */
+.ifuut-actions .button > *, .ifuut-ql > * { position:relative; z-index:2; }
+
+/* ensure good contrast for tables/cards */
+.ifuut-left .module, .ifuut-left .app-list { background: transparent; }
+
+/* final fallback for very small screens */
+@media (max-width:480px) {
+  .ifuut-card { min-width: 140px; }
+  .ifuut-logo { width:48px; height:48px; font-size:16px; }
+}
