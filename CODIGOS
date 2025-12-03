@@ -2,3 +2,9 @@ para rodar o front:
     npm run dev
 para rodar o back:
     python manage.py runserver
+requerimentos;
+    pip install django
+    pip install Pillow
+    pip install djangorestframework-simplejwt
+    pip install djangorestframework
+    pip install django-cors-headers
